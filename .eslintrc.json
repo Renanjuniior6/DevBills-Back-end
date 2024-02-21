@@ -1,0 +1,39 @@
+{
+    "env": {
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended", 
+        "standard"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+              "singleQuote": false,
+              "trailingComma": "none",
+              "arrowParens": "always",
+              "endOfLine": "auto",
+              "bracketSpacing": true,
+              "bracketSameLine": false,
+              "printWidth": 80,
+              "proseWrap": "preserve",
+              "quoteProps": "as-needed",
+              "semi": false,
+              "tabWidth": 2,
+              "useTabs": false
+            }
+          ]
+    }
+}
