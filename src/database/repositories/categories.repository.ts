@@ -17,4 +17,20 @@ export class CategoryRepository {
 
         return category?.toObject<Category>()
     }
+
+    async findById(id: string): Promise<Category | undefined> {
+
+        const category = await this.model.findById(id)
+
+        return category?.toObject<Category>()
+    }
+
+    async index(): Promise<Category[]> {
+        const categories = await this.model.find()
+
+        const categoriesMap = categories.map((item) => item.toObject<Category>())
+
+        return categoriesMap
+    }
+
 } 
