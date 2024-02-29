@@ -1,4 +1,4 @@
-import {z} from "zod"
+import {optional, z} from "zod"
 import { TransactionTypes } from "../entities/transactions.entity"
 
 export const createTransactionSchema = {
@@ -6,9 +6,27 @@ export const createTransactionSchema = {
     amount: z.number().int().positive(),
     type: z.nativeEnum(TransactionTypes),
     date: z.coerce.date(),
-    categoryId: z.string(),
+    categoryId: z.string().length(24),
 }
 
 const createTransactionObject = z.object(createTransactionSchema)
 
 export type CreateTransactionDTO = z.infer<typeof createTransactionObject>
+
+export const indexTransactionSchema = {
+    title: z.string().optional(),
+    categoryId: z.string().length(24).optional(),
+    beginDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional()
+}
+
+const indexTransactionObject = z.object(indexTransactionSchema)
+export type IndexTransactionDTO = z.infer< typeof indexTransactionObject>
+
+export const getDashBoardSchema = {
+    beginDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional()
+}
+
+const getDashBoardObject = z.object(getDashBoardSchema)
+export type GetDashBoardDTO = z.infer<typeof getDashBoardObject>

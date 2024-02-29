@@ -1,7 +1,5 @@
-# Criar transações
-	-categoria, nome, valor, data, tipo
 
-# Listar as transações com filtros
+# Listar as transações com filtros (DONE)
 	-por nome 
 	-por período (inicio, fim)
 	-por categoria
@@ -22,3 +20,6 @@
 	- não é possivel criar categorias com o mesmo nome
 
 # Listar as categorias (DONE)
+
+# Criar transações (DONE)
+	-categoria, nome, valor, data, tipo

@@ -10,4 +10,4 @@ const TransactionSchema = new mongoose.Schema(
         category: CategorySchema
     }, { versionKey: false })
 
-    export const TransactionModel = mongoose.model("Transaction", TransactionSchema)
+export const TransactionModel = mongoose.model("Transaction", TransactionSchema)
