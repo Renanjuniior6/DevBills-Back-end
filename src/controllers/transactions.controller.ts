@@ -1,13 +1,14 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { TransactionsService } from "../services/transactions.service";
 import { CreateTransactionDTO, GetDashBoardDTO, GetFinancialEvolutionDTO, IndexTransactionDTO } from "../dtos/transactions.dto";
+import { BodyRequest, QueryRequest } from "./types";
 
 export class TransactionsController {
 
     constructor(private transactionsService: TransactionsService){}
 
-    create = async (req: Request<unknown, unknown, CreateTransactionDTO>, res: Response, next: NextFunction) => {
+    create = async (req: BodyRequest<CreateTransactionDTO>, res: Response, next: NextFunction) => {
         
         try {
             const { title, amount, categoryId, date, type } = req.body
@@ -21,7 +22,7 @@ export class TransactionsController {
         }
 } 
 
-    index = async (req: Request<unknown, unknown, unknown, IndexTransactionDTO>, res: Response, next: NextFunction) => {
+    index = async (req: QueryRequest<IndexTransactionDTO>, res: Response, next: NextFunction) => {
             
         try {
             const { title, categoryId, beginDate, endDate } = req.query
@@ -35,7 +36,7 @@ export class TransactionsController {
         }
     } 
 
-    getDashBoard = async (req: Request<unknown, unknown, unknown, GetDashBoardDTO>, res: Response, next: NextFunction) => {
+    getDashBoard = async (req: QueryRequest<GetDashBoardDTO>, res: Response, next: NextFunction) => {
             
         try {
             const { beginDate, endDate } = req.query
@@ -49,7 +50,7 @@ export class TransactionsController {
         }
     } 
 
-    getFinancialEvolution = async (req: Request<unknown, unknown, unknown, GetFinancialEvolutionDTO>, res: Response, next: NextFunction) => {
+    getFinancialEvolution = async (req: QueryRequest<GetFinancialEvolutionDTO>, res: Response, next: NextFunction) => {
             
         try {
             const { year } = req.query

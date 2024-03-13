@@ -1,4 +1,4 @@
-import {optional, z} from "zod"
+import {z} from "zod"
 import { TransactionTypes } from "../entities/transactions.entity"
 
 export const createTransactionSchema = {

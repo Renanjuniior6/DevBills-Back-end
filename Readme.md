@@ -1,10 +1,3 @@
-# Dados de despesas por categoria com filtros (DONE)
-	-por período 
-
-# Dados de balanço geral do ano com filtros (DONE)
-	-por ano
-
-
 --
 # Criar categorias (DONE)
 	-nome, cor
@@ -22,3 +15,9 @@
 
 # Dados de saldo com filtros (DONE)
 	-por período (inicio, fim)
+
+# Dados de balanço geral do ano com filtros (DONE)
+	-por ano
+
+# Dados de despesas por categoria com filtros (DONE)
+	-por período 
