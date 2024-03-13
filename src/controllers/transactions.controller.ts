@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { TransactionsService } from "../services/transactions.service";
-import { CreateTransactionDTO, GetDashBoardDTO, IndexTransactionDTO } from "../dtos/transactions.dto";
+import { CreateTransactionDTO, GetDashBoardDTO, GetFinancialEvolutionDTO, IndexTransactionDTO } from "../dtos/transactions.dto";
 
 export class TransactionsController {
 
@@ -41,6 +41,20 @@ export class TransactionsController {
             const { beginDate, endDate } = req.query
 
             const result = await this.transactionsService.getDashBoard({ beginDate, endDate })
+
+            return res.status(StatusCodes.OK).json(result)
+
+        } catch (err) {
+            next(err)
+        }
+    } 
+
+    getFinancialEvolution = async (req: Request<unknown, unknown, unknown, GetFinancialEvolutionDTO>, res: Response, next: NextFunction) => {
+            
+        try {
+            const { year } = req.query
+
+            const result = await this.transactionsService.getFinancialEvolution({ year })
 
             return res.status(StatusCodes.OK).json(result)
 

@@ -30,3 +30,10 @@ export const getDashBoardSchema = {
 
 const getDashBoardObject = z.object(getDashBoardSchema)
 export type GetDashBoardDTO = z.infer<typeof getDashBoardObject>
+
+export const getFinancialEvolutionSchema = {
+    year: z.string()
+}
+
+const getFinancialEvolutionObject = z.object(getFinancialEvolutionSchema)
+export type GetFinancialEvolutionDTO = z.infer<typeof getFinancialEvolutionObject>
